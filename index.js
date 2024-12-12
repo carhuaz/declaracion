@@ -2,50 +2,7 @@ const yesBtn = document.querySelector('#yesBtn');
 const noBtn = document.querySelector('#noBtn');
 const contenedor = document.querySelector('.contenedor');
 
-yesBtn.addEventListener('click', function () {
-    // Crear una celebración más elaborada
-    contenedor.innerHTML = `
-        <h1 class="titulo">¡Sabía que dirías que sí! ❤️</h1>
-        <div class="celebracion">
-            <img src="celebracion.gif" alt="Celebración" class="imagen-celebracion">
-            <p class="mensaje-amor">¡Te quiero mucho!</p>
-        </div>
-    `;
-    // Agregar confeti o efectos visuales
-    crearConfeti();
-});
-
-noBtn.addEventListener('mouseover', function () {
-    const randomX = parseInt(Math.random() * 80); // Limitado a 80 para evitar desbordamiento
-    const randomY = parseInt(Math.random() * 80);
-    
-    noBtn.style.position = 'absolute';
-    noBtn.style.top = `${randomY}%`;
-    noBtn.style.left = `${randomX}%`;
-    noBtn.style.transition = 'all 0.3s ease';
-});
-
-// Función para crear efecto de confeti
-function crearConfeti() {
-    for (let i = 0; i < 100; i++) {
-        const confeti = document.createElement('div');
-        confeti.classList.add('confeti');
-        confeti.style.left = Math.random() * 100 + 'vw';
-        confeti.style.animationDelay = Math.random() * 3 + 's';
-        contenedor.appendChild(confeti);
-    }
-}
-// En el evento click del botón Sí:
-yesBtn.addEventListener('click', function () {
-    contenedor.innerHTML = `
-        <div class="celebracion">
-            <h1 class="titulo-celebracion">¡Sabía que dirías que sí! ❤️</h1>
-            <p class="mensaje-amor">Eres lo mejor que me ha pasado</p>
-        </div>
-    `;
-    crearCorazones();
-});
-
+// Función para crear los corazones
 function crearCorazones() {
     const crearCorazon = () => {
         const corazon = document.createElement('div');
@@ -70,3 +27,35 @@ function crearCorazones() {
     // Crear corazones cada 100ms
     setInterval(crearCorazon, 100);
 }
+
+// Función para mostrar mensaje al hacer click en el botón especial
+function mostrarMensaje() {
+    alert('Te amo muchísimo ❤️');
+}
+
+// Evento click del botón Sí
+yesBtn.addEventListener('click', function () {
+    // Crear y reproducir el sonido
+    const audio = new Audio('music/Mi Villano Favorito 2  El día de la boda.mp3'); // Reemplaza con tu archivo
+    audio.play();
+
+    contenedor.innerHTML = `
+        <div class="celebracion">
+            <h1 class="titulo-celebracion">¡Sabía que dirías que sí! ❤️</h1>
+            <p class="mensaje-amor">Eres lo mejor que me ha pasado</p>
+            <button class="boton-especial" onclick="mostrarMensaje()">Click Aquí ❤️</button>
+        </div>
+    `;
+    crearCorazones();
+});
+
+// Evento para el botón No
+noBtn.addEventListener('mouseover', function () {
+    const randomX = parseInt(Math.random() * 80);
+    const randomY = parseInt(Math.random() * 80);
+    
+    noBtn.style.position = 'absolute';
+    noBtn.style.top = randomY + '%';
+    noBtn.style.left = randomX + '%';
+    noBtn.style.transition = 'all 0.3s ease';
+});
