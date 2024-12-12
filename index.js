@@ -36,7 +36,7 @@ function mostrarMensaje() {
 // Evento click del botón Sí
 yesBtn.addEventListener('click', function () {
     // Crear y reproducir el sonido
-    const audio = new Audio('music/Mi Villano Favorito 2  El día de la boda.mp3'); // Reemplaza con tu archivo
+    const audio = new Audio('music/finalaudio.mp3'); // Reemplaza con tu archivo
     audio.play();
 
     contenedor.innerHTML = `
