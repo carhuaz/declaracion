@@ -1,46 +1,3 @@
-// Al inicio del archivo, agregamos el contador
-let intentosNo = 0;
-
-// Modificamos el evento mouseover del botón No
-noBtn.addEventListener('mouseover', function () {
-    // Incrementar contador
-    intentosNo++;
-    
-    // Mensajes personalizados según el número de intentos
-    if(intentosNo == 5) {
-        alert('¡Ya intentaste escapar 5 veces! 😂');
-    } else if(intentosNo == 10) {
-        alert('¡10 intentos! ¿No te cansas? 😆');
-    } else if(intentosNo == 15) {
-        alert('¡15 veces! ¡Eres persistente! 🤭');
-    } else if(intentosNo == 20) {
-        alert('¡20 intentos! Mejor di que sí 💕');
-    }
-
-    // Resto del código original
-    const sonidoAleatorio = new Audio(sonidosGraciosos[Math.floor(Math.random() * sonidosGraciosos.length)]);
-    sonidoAleatorio.volume = 0.4;
-    sonidoAleatorio.play();
-
-    const randomX = parseInt(Math.random() * 80);
-    const randomY = parseInt(Math.random() * 80);
-    
-    noBtn.style.position = 'absolute';
-    noBtn.style.top = randomY + '%';
-    noBtn.style.left = randomX + '%';
-    noBtn.style.transition = 'all 0.3s ease';
-
-    const frase = document.createElement('span');
-    frase.textContent = frases[Math.floor(Math.random() * frases.length)];
-    frase.className = 'frase-flotante';
-    frase.style.left = randomX + '%';
-    frase.style.top = randomY + '%';
-    document.body.appendChild(frase);
-
-    setTimeout(() => {
-        frase.remove();
-    }, 1000);
-});
 const yesBtn = document.querySelector('#yesBtn');
 const noBtn = document.querySelector('#noBtn');
 const contenedor = document.querySelector('.contenedor');
@@ -193,3 +150,46 @@ function crearCorazones() {
         frase.remove();
     }, 1000);
  });
+ // Al inicio del archivo, agregamos el contador
+let intentosNo = 0;
+
+// Modificamos el evento mouseover del botón No
+noBtn.addEventListener('mouseover', function () {
+    // Incrementar contador
+    intentosNo++;
+    
+    // Mensajes personalizados según el número de intentos
+    if(intentosNo == 5) {
+        alert('¡Ya intentaste escapar 5 veces! 😂');
+    } else if(intentosNo == 10) {
+        alert('¡10 intentos! ¿No te cansas? 😆');
+    } else if(intentosNo == 15) {
+        alert('¡15 veces! ¡Eres persistente! 🤭');
+    } else if(intentosNo == 20) {
+        alert('¡20 intentos! Mejor di que sí 💕');
+    }
+
+    // Resto del código original
+    const sonidoAleatorio = new Audio(sonidosGraciosos[Math.floor(Math.random() * sonidosGraciosos.length)]);
+    sonidoAleatorio.volume = 0.4;
+    sonidoAleatorio.play();
+
+    const randomX = parseInt(Math.random() * 80);
+    const randomY = parseInt(Math.random() * 80);
+    
+    noBtn.style.position = 'absolute';
+    noBtn.style.top = randomY + '%';
+    noBtn.style.left = randomX + '%';
+    noBtn.style.transition = 'all 0.3s ease';
+
+    const frase = document.createElement('span');
+    frase.textContent = frases[Math.floor(Math.random() * frases.length)];
+    frase.className = 'frase-flotante';
+    frase.style.left = randomX + '%';
+    frase.style.top = randomY + '%';
+    document.body.appendChild(frase);
+
+    setTimeout(() => {
+        frase.remove();
+    }, 1000);
+});
