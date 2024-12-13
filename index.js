@@ -102,7 +102,7 @@ function crearCorazones() {
  
  // Función para mostrar mensaje
  function mostrarMensaje() {
-    alert('Te amo muchísimo ❤️');
+    alert('Te amo muchísimo mi aly hermosa muuuuua ❤️');
  }
  
  // Evento click del botón Sí
