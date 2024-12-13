@@ -193,3 +193,45 @@ noBtn.addEventListener('mouseover', function () {
         frase.remove();
     }, 1000);
 });
+// Función para el efecto máquina de escribir
+function escribirTexto(texto, elemento, velocidad = 100) {
+    let i = 0;
+    elemento.textContent = ''; // Limpiar el elemento
+    
+    const escribir = setInterval(() => {
+        if(i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(escribir);
+        }
+    }, velocidad);
+}
+
+// Modificamos el evento click del botón Sí
+yesBtn.addEventListener('click', function () {
+    const audio = new Audio('ruta_de_tu_sonido.mp3');
+    audio.play();
+
+    contenedor.innerHTML = `
+        <div class="celebracion">
+            <h1 class="titulo-celebracion"></h1>
+            <p class="mensaje-amor"></p>
+            <button class="boton-especial" onclick="mostrarMensaje()">Click Aquí ❤️</button>
+        </div>
+    `;
+
+    const titulo = document.querySelector('.titulo-celebracion');
+    const mensaje = document.querySelector('.mensaje-amor');
+
+    // Escribimos los mensajes secuencialmente
+    escribirTexto('¡Sabía que dirías que sí! ❤️', titulo, 100);
+    
+    // Esperamos a que termine el título para empezar el mensaje
+    setTimeout(() => {
+        escribirTexto('Eres lo mejor que me ha pasado', mensaje, 100);
+    }, 2500); // Ajusta este tiempo según la longitud del título
+
+    crearCorazones();
+    crearFuegosArtificiales();
+});
